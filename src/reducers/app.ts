@@ -34,12 +34,12 @@ const checkForWinner = (board: boolean[]): boolean => {
 const appReducer: Reducer<AppState, AppAction> = (state = { board }, action) => {
     switch(action.type) {
         case UPDATE_BOARD:
-            if (state.winner) {
+            if (state.winner || action.index === 12) {
                 return state;
             }
 
             const newBoard = state.board.slice();
-            newBoard[action.index] = true;
+            newBoard[action.index] = !state.board[action.index];
             return {board: newBoard, winner: checkForWinner(newBoard)};
 
         default:
