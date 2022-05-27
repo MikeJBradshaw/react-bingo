@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
-import { Box, Button } from 'grommet';
+import { Box } from 'grommet';
 import { DISPLAY } from '../reducers/app';
 import { updateBoard } from '../actions/app';
 import type { ConnectedProps} from 'react-redux';
@@ -22,7 +22,7 @@ const Card: FunctionComponent<ConnectedProps<typeof connector> & CardOwnProps> =
     <Box
         id={`${id}`}
         className="bingo-card"
-        style={board[id] ? { background: 'grey' } : {}}
+        style={board[id] ? { background: 'darkgreen' } : { }}
         onClick={() => updateBoard(id)}
     >{DISPLAY[id]}</Box>
 )
